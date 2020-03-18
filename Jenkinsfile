@@ -14,4 +14,12 @@ node ('master') {
          sh 'bash owasp-dependency-check.sh'
          sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
 	}
+
+ stage ('SAST'){
+	sh 'sonar-scanner \
+  -Dsonar.projectKey=webapp-sast \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=http://ci-jenkins.cloudhands.online \
+  -Dsonar.login=19aecfaf0d879e44785dd65d056507e267a0f31f'
 }
+

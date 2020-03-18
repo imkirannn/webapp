@@ -22,4 +22,4 @@ node ('master') {
   -Dsonar.host.url=http://ci-jenkins.cloudhands.online \
   -Dsonar.login=19aecfaf0d879e44785dd65d056507e267a0f31f'
 }
-
+}

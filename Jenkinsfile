@@ -26,7 +26,6 @@ node ('master') {
 }
 
 stage ('UNIT') {
-  sh 'npm install'
   sh 'npm test'
 
 }

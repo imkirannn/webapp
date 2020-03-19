@@ -25,9 +25,14 @@ node ('master') {
 }
 
 stage ('UNIT') {
-  sh 'npm install'
+    when {
+         expression { params.REQUESTED_ACTION != 'SILENCE' }
+     }
   sh 'npm test'
 
 }
+    stage('Deploy'){
+        sh 'npm install'
+    }
 
 }

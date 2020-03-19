@@ -25,6 +25,7 @@ node ('master') {
 }
 
 stage ('UNIT') {
+  sh 'bower install --config.interactive=false'
   sh 'npm install'
   sh 'npm test'
 

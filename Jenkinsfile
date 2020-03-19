@@ -26,11 +26,11 @@ node ('master') {
 }
 
 stage ('UNIT') {
-    when {
-         expression { params.REQUESTED_ACTION != 'SILENCE' }
-     }
+    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
+
   sh 'npm test'
 
+}
 }
     stage('Deploy'){
         sh 'npm install'
